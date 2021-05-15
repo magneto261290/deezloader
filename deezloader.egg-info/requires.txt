@@ -1,0 +1,8 @@
+Flask
+flask-cors
+stagger
+mutagen
+pycryptodome
+requests
+spotipy
+tqdm
