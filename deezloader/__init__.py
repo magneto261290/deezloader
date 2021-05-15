@@ -21,9 +21,8 @@ stock_zip = False
 
 class Login:
 	def __init__(self, token):
-		self.spo = Spotify(
-			utils.generate_token()
-		)
+		self.spo = utils.generate_token()
+
 
 		self.req = Session()
 		self.req.cookies['arl'] = token
@@ -537,9 +536,8 @@ class Login:
 			if not "The access token expired" in str(a):
 				raise exceptions.InvalidLink("Invalid link ;)")
 
-			self.spo = Spotify(
-				utils.generate_token()
-			)
+			self.spo = utils.generate_token()
+
 
 			url = self.spo.track(URL)
 
@@ -574,9 +572,8 @@ class Login:
 			if not "The access token expired" in str(a):
 				raise exceptions.InvalidLink("Invalid link ;)")
 
-			self.spo = Spotify(
-				utils.generate_token()
-			)
+			self.spo = utils.generate_token()
+
 
 			tracks = self.spo.album(URL)
 
@@ -609,9 +606,8 @@ class Login:
 						a['external_urls']['spotify']
 					)['external_ids']['isrc']
 				except:
-					self.spo = Spotify(
-						utils.generate_token()
-					)
+					self.spo = utils.generate_token()
+
 
 					isrc = self.spo.track(
 						a['external_urls']['spotify']
@@ -670,9 +666,8 @@ class Login:
 			if not "The access token expired" in str(a):
 				raise exceptions.InvalidLink("Invalid link ;)")
 
-			self.spo = Spotify(
-				utils.generate_token()
-			)
+			self.spo = utils.generate_token()
+
 
 			tracks = self.spo.user_playlist_tracks(URL[-3], URL[-1])
 
@@ -697,9 +692,8 @@ class Login:
 			try:
 				tracks = self.spo.next(tracks)
 			except:
-				self.spo = Spotify(
-					utils.generate_token()
-				)
+				self.spo = utils.generate_token()
+
 
 				tracks = self.spo.next(tracks)
 
@@ -725,9 +719,8 @@ class Login:
 		try:
 			search = self.spo.search(query)
 		except:
-			self.spo = Spotify(
-				utils.generate_token()
-			)
+			self.spo = utils.generate_token()
+
 
 			search = self.spo.search(query)
 

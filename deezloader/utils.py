@@ -3,7 +3,8 @@
 import zipfile
 from requests import get
 from mutagen import File
-from spotipy import oauth2
+from spotipy import Spotify
+from spotipy.oauth2 import SpotifyClientCredentials
 from os.path import isfile
 from os import makedirs, remove
 from deezloader import exceptions
@@ -32,10 +33,7 @@ from deezloader.others_settings import (
 )
 
 def generate_token():
-	return oauth2.SpotifyClientCredentials(
-		client_id = spotify_client_id,
-		client_secret = spotify_client_secret
-	).get_access_token()
+    return Spotify(auth_manager=SpotifyClientCredentials(client_id="ce7a396e8ea74c3f9a289ee3028ab6d9",client_secret="d7312b2a5fd6496ca3d30be30be56a6f"))
 
 def choose_img(image):
 	image = request(cover % image).content
